@@ -1,4 +1,5 @@
-
+import cell from './cell'
+import wall from './wall'
 export default class maze{
 	
 	constructor(sx,sy){
