@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Maze Generator</title>
+    <link rel="stylesheet" href="css.css">
+  </head>
+  <body id="change">
+      <div id="header">
+        <div id="createMaze">
+          <h3 id="title">Maze Generator</h3>
+            <select name="Algorithms" id="Algorithm-select">
+                  <option  value="k">Kruskal's Algorithm-</option>
+                  <option value="p">Prim's Algorithm</option>
+                  <option value="r">Randomized Depth Search</option>
+            </select>
+            <button id="visualize">Visualize</button>
+            <button id="generate" >Generate </button>
+        </div>
+      </div>
+      <div class="center">
+        <canvas id="canvas" width=1000px height=1000px></canvas>
+      </div>
+      <script type="module" src="maze.js"></script>
+      <script type="module" src="general/cell.js"></script>
+      <script type="module" src="randomized-depth/createMaze.js"></script>
+      <script type="module" src="general/stack.js"></script>
+      <script type="module" src="randomized-depth/Randomized-depth-first-search.js"></script>
+      <script type="module" src="general/visualize.js"></script>
+      <script type="module" src="randomized-prim/maze.js"></script>
+      <script type="module" src="randomized-prim/primAlgorithm.js"></script>
+      <script type="module" src="randomized-kruskal-algorithm/randomize-kruskal.js"></script>
+
+  </body>
+</html>
