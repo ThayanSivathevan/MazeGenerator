@@ -1,6 +1,6 @@
-import depthsearch from '/randomizedDepth/RandomizedDepthFirstSearch'
-import primAlgorithm from '/randomizedPrim/primAlgorithm'
-import kruskalalgorithm from '/randomizedKruskalAlgorithm/randomizeKruskal.js'
+import depthsearch from './randomizedDepth/RandomizedDepthFirstSearch.js'
+import primAlgorithm from './randomizedPrim/primAlgorithm.js'
+import kruskalalgorithm from './randomizedKruskalAlgorithm/randomizeKruskal.js'
 
 var change=document.getElementById("body")
 
