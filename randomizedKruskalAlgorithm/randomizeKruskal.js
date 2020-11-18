@@ -1,6 +1,6 @@
-import cell from '../general/cell'
-import maze from './maze'
-import visualize from '../general/visualize'
+import cell from '../general/cell.js'
+import maze from './maze.js'
+import visualize from '../general/visualize.js'
 export default class kruskal{
 	constructor(x,y){
 		this.m=new maze(x,y)

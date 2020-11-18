@@ -1,5 +1,5 @@
-import cell from './cell'
-import wall from './wall'
+import cell from './cell.js'
+import wall from './wall.js'
 export default class maze{
 	
 	constructor(sx,sy){

@@ -1,6 +1,6 @@
-import cell from '../general/cell'
-import visualize from '../general/visualize'
-import superMaze from '../general/maze'
+import cell from '../general/cell.js'
+import visualize from '../general/visualize.js'
+import superMaze from '../general/maze.js'
 export default class maze extends superMaze{
 	
 	constructor(sx,sy){
