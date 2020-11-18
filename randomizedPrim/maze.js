@@ -1,6 +1,6 @@
-import superMaze from '../general/maze'
-import wall from '../general/wall'
-import visuals from '../general/visualize'
+import superMaze from '../general/maze.js'
+import wall from '../general/wall.js'
+import visuals from '../general/visualize.js'
 export default class maze extends superMaze{
 	
 	constructor(sx,sy){
