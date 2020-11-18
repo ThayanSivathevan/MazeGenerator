@@ -6,7 +6,7 @@ var change=document.getElementById("body")
 
 var can = document.getElementById("canvas");
 var ct = can.getContext("2d");
-
+ct.fillRect(0,0,500,500)
 
 // change.onChange(){
 // 	ct = can.getContext("2d");
