@@ -1,13 +1,12 @@
 
-import depthsearch from './randomizedDepth/RandomizedDepthFirstSearch'
-import primAlgorithm from './randomizedPrim/primAlgorithm'
+import depthsearch from './randomizedDepth/RandomizedDepthFirstSearch.js'
+import primAlgorithm from './randomizedPrim/primAlgorithm.js'
 import kruskalalgorithm from './randomizedKruskalAlgorithm/randomizeKruskal.js'
 
 var change=document.getElementById("body")
 
 var can = document.getElementById("canvas");
 var ct = can.getContext("2d");
-ct.fillRect(0,0,500,500)
 
 // change.onChange(){
 // 	ct = can.getContext("2d");
