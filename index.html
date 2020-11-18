@@ -1,10 +1,11 @@
-<<<<<<< HEAD
+
 <html>
   <head>
     <title>Maze Generator</title>
-    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <link rel="stylesheet"  href="css.css">
   </head>
   <body id="change">
+    <div class="main">
       <div id="header">
         <div id="createMaze">
           <h3 id="title">Maze Generator</h3>
@@ -32,44 +33,6 @@
       <script type="module" src="./general/visualize.js"></script>
       <script type="module" src="./general/maze.js"></script>
       <script type="module" src="./general/wall.js"></script>
-
+    </div>
   </body>
 </html>
-=======
-<html>
-  <head>
-    <title>Maze Generator</title>
-    <link rel="stylesheet" href="css.css">
-  </head>
-  <body id="change">
-      <div id="header">
-        <div id="createMaze">
-          <h3 id="title">Maze Generator</h3>
-            <select name="Algorithms" id="Algorithm-select">
-                  <option  value="k">Kruskal's Algorithm-</option>
-                  <option value="p">Prim's Algorithm</option>
-                  <option value="r">Randomized Depth Search</option>
-            </select>
-            <button id="visualize">Visualize</button>
-            <button id="generate" >Generate </button>
-        </div>
-      </div>
-      <div class="center">
-        <canvas id="canvas" width=1000px height=1000px></canvas>
-      </div>
-      <script type="module" src="./maze.js"></script>
-      <script type="module" src="./randomizedDepth/createMaze.js"></script>
-      <script type="module" src="./randomizedDepth/RandomizedDepthFirstSearch.js"></script>
-      <script type="module" src="./randomizedPrim/maze.js"></script>
-      <script type="module" src="./randomizedPrim/primAlgorithm.js"></script>
-      <script type="module" src="./randomizedKruskalAlgorithm/randomizeKruskal.js"></script>
-      <script type="module" src="./randomizedKruskalAlgorithm/maze.js"></script>
-      <script type="module" src="./general/cell.js"></script>
-      <script type="module" src="./general/stack.js"></script>
-      <script type="module" src="./general/visualize.js"></script>
-      <script type="module" src="./general/maze.js"></script>
-      <script type="module" src="./general/wall.js"></script>
-
-  </body>
-</html>
->>>>>>> ccd76a03da7dca599f8af805cde4e30522b19f2c
