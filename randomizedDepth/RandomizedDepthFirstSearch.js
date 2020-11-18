@@ -1,7 +1,7 @@
-import cell from '../general/cell'
-import maze from './createMaze'
-import Stack from '../general/stack'
-import visualize from '../general/visualize'
+import cell from '../general/cell.js'
+import maze from './createMaze.js'
+import Stack from '../general/stack.js'
+import visualize from '../general/visualize.js'
 export default class depthsearch{
 	constructor(x,y,px,py){
 		this.m=new maze(x,y)
