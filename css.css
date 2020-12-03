@@ -46,7 +46,7 @@ select{
 }
 #canvas {
   border: 1px solid blue;
-
+  background-color: black;
   padding: 0;
   margin: auto;
   display: block;

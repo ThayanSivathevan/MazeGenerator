@@ -47,5 +47,6 @@ export default class maze extends superMaze{
 		}
 	}
 
+	
 
 }

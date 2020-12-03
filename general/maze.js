@@ -42,25 +42,25 @@ export default class maze{
 	deleteWall(n){
 		this.walls[n]=this.walls.pop()
 	}
-	findNeighbours(c){
+	findNeighbours(c,boole=false){
 		let neighbours=[]
 		if(c.getRow()-1>=0){
-			if(!(this.arr[c.getRow()-1][c.getColumn()].getVisited())){
+			if((!this.arr[c.getRow()-1][c.getColumn()].getVisited())||boole){
 				neighbours.push([c.getRow()-1,c.getColumn()])
 			}
 		}
 		if(c.getRow()+1<this.rows){
-			if(!(this.arr[c.getRow()+1][c.getColumn()].getVisited())){
+			if((!this.arr[c.getRow()+1][c.getColumn()].getVisited())||boole){
 				neighbours.push([c.getRow()+1,c.getColumn()])
 			}
 		}
 		if(c.getColumn()-1>=0){
-			if(!(this.arr[c.getRow()][c.getColumn()-1].getVisited())){
+			if((!this.arr[c.getRow()][c.getColumn()-1].getVisited())||boole){
 				neighbours.push([c.getRow(),c.getColumn()-1])
 			}
 		}
 		if(c.getColumn()+1<this.columns){
-			if(!(this.arr[c.getRow()][c.getColumn()+1].getVisited())){
+			if((!this.arr[c.getRow()][c.getColumn()+1].getVisited())||boole){
 				neighbours.push([c.getRow(),c.getColumn()+1])
 			}
 		}
