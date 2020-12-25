@@ -1,14 +1,12 @@
 import cell from '../general/cell.js'
 import maze from './maze.js'
 import visualize from '../general/visualize.js'
-export default class primAlgorithm{
+import algorithm from '../general/algorithm.js'
+export default class primAlgorithm extends algorithm{
 	constructor(x,y,px,py){
-		this.m=new maze(x,y)
-		this.x=x
-		this.y=y
+		super(x,y,new maze(x,y))
 		this.px=px
 		this.py=py
-
 	}
 
 	createMaze(){

@@ -1,12 +1,10 @@
 import cell from '../general/cell.js'
 import maze from './maze.js'
 import visualize from '../general/visualize.js'
-export default class kruskal{
+import algorithm from '../general/algorithm.js'
+export default class kruskal extends algorithm{
 	constructor(x,y){
-		this.m=new maze(x,y)
-		this.x=x
-		this.y=y
-
+		super(x,y,new maze(x,y))
 	}
 
 	createMaze(){
