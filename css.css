@@ -23,7 +23,7 @@ body{
    margin-bottom: 40px;
   
 }
-button {
+button,h4 {
   background-color: #6666FF; /* Green */
   border: none;
   color: white;

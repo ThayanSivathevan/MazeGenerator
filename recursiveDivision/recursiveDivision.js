@@ -6,8 +6,8 @@ import algorithm from '../general/algorithm.js'
 import wall from './wall.js'
 export default class recursiveDivision extends algorithm {
 
-    constructor(x, y) {
-        super(x, y, new maze(x, y))
+    constructor(x, y,speed=0) {
+        super(x, y, new maze(x, y),speed+30)
         this.s = new Stack()
 
     }
@@ -18,6 +18,7 @@ export default class recursiveDivision extends algorithm {
 
     }
 
+    //not used
     drawMazeAlt(ct) {
         ct.fillStyle = "#FFFFFF";
         ct.fillRect(0, 0, this.mul * this.x, this.mul * this.y)
@@ -55,17 +56,24 @@ export default class recursiveDivision extends algorithm {
         ct.fillStyle = "#FFFFFF";
         ct.fillRect(0, 0, this.mul * this.x, this.mul * this.y)
         ct.fillStyle = "#FFFFFF";
-        this.id = setInterval(animate, 100);
+        this.id = setInterval(animate, this.speed);
         let id = this.id;
         let t = this.m
         let mul = this.mul
         let size = this.size
-        let cl=this;
-        console.log(t)
-        function animate() {
-            if (i== t.walls.length) {
+        let cur=this;
+        if(this.iter!=0){
+            while(i!=this.iter){
+                animate(true,i)
+                i++;
+            }
+        }
+        function animate(redo=false,i=cur.iter) {
+            if (cur.iter== t.walls.length) {
                 clearInterval(id);
-                cl.drawMaze(ct)
+                cur.iter=true
+                cur.cont=false;
+                cur.drawMaze(ct)
             }
             else {
                 let n = t.walls[i];
@@ -84,7 +92,7 @@ export default class recursiveDivision extends algorithm {
                     ct.fillStyle = "#000000";
 
                 }
-                i++;
+                if(!redo)cur.iter++;
 
             }
 

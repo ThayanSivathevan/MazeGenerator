@@ -3,8 +3,8 @@ import maze from './maze.js'
 import visualize from '../general/visualize.js'
 import algorithm from '../general/algorithm.js'
 export default class primAlgorithm extends algorithm{
-	constructor(x,y,px,py){
-		super(x,y,new maze(x,y))
+	constructor(x,y,px,py,speed=10){
+		super(x,y,new maze(x,y),speed)
 		this.px=px
 		this.py=py
 	}

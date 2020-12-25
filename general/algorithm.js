@@ -1,15 +1,17 @@
 export default class algorithm{
-    constructor(x,y,m){
+    constructor(x,y,m,speed=10){
         this.x=x
         this.y=y
         this.m=m
         this.id;
         this.mul=50
         this.size=30
+        this.speed=speed
+        this.cont=false;
+        this.iter=0
     }
 
     drawMaze(ct) {
-        console.log(ct)
         ct.fillStyle = "#000000";
         ct.fillRect(0, 0, this.mul * this.x, this.mul * this.y)
         ct.fillStyle = "#FFFFFF";
@@ -31,18 +33,28 @@ export default class algorithm{
     }
     
     visualize(ct) {
-        let n = 0
+        let n = 0;
         ct.fillStyle = "#000000";
         ct.fillRect(0, 0, this.mul * this.x, this.mul * this.y)
         ct.fillStyle = "#FFFFFF";
-        this.id = setInterval(animate, 10);
+        this.id = setInterval(animate, this.speed);
         let id=this.id;
         let t = this.m
         let mul=this.mul
         let size= this.size
-        function animate() {
-            if (n == t.visual.length+1) {
+        this.cont=true
+        let cur=this;
+        if(this.iter!=0){
+            while(n!=this.iter){
+                animate(true,n)
+                n++;
+            }
+        }
+        function animate(redo=false,n=cur.iter) {
+            if (cur.iter == t.visual.length+1) {
                 clearInterval(id);
+                cur.cont=false
+                cur.iter=0
             }
             else {
                 let temp;
@@ -54,7 +66,7 @@ export default class algorithm{
                     temp = t.visual[n-1]
                     drawVisual(ct,temp,"#FFFFFF",mul,size)
                 }
-                n++;
+                if(!redo)cur.iter++;
             }
 
             function drawVisual(ct,temp,style,mul,size) {

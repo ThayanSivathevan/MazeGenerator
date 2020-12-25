@@ -3,8 +3,8 @@ import maze from './maze.js'
 import visualize from '../general/visualize.js'
 import algorithm from '../general/algorithm.js'
 export default class kruskal extends algorithm{
-	constructor(x,y){
-		super(x,y,new maze(x,y))
+	constructor(x,y,speed=10){
+		super(x,y,new maze(x,y),speed)
 	}
 
 	createMaze(){
