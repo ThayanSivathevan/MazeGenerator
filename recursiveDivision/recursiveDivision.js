@@ -68,7 +68,6 @@ export default class recursiveDivision extends algorithm {
                 cl.drawMaze(ct)
             }
             else {
-                i++;
                 let n = t.walls[i];
                 if (n.orientation === "h") {
                     ct.fillRect(n.pos * mul, n.loc * mul, n.size * mul, 20)
@@ -85,6 +84,7 @@ export default class recursiveDivision extends algorithm {
                     ct.fillStyle = "#000000";
 
                 }
+                i++;
 
             }
 
