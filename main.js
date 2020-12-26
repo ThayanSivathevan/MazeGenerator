@@ -15,7 +15,7 @@ var visual = document.getElementById("visualize");
 var selection=document.getElementById("Algorithm-select");
 var body = document.getElementById("change");
 var range = document.getElementById("Speed");
-
+var Size = document.getElementById("Size");
 const mazeCreation=()=>{
 	n=findMaze();
 	n.drawMaze(ct)
@@ -28,7 +28,8 @@ change.onload=()=>{
 }
 
 generate.onclick = () => {
-    mazeCreation()
+	mazeCreation()
+	
 }
 
 visual.onclick = () => {
@@ -51,29 +52,34 @@ function findMaze() {
 	var nameValue = document.getElementById("Algorithm-select").value;
 	let m;
 	let speed=parseInt(range.value)*-1
-	console.log(speed)
+	let size=parseInt(Size.value)
 	if(n){
 		n.clear();
 	}
+	clearPage();
 	if (nameValue == "k") {
-		m = new kruskalalgorithm(20, 20,speed)
+		m = new kruskalalgorithm(size, size,speed)
 	}
 	else if (nameValue == "p") {
-		m = new primAlgorithm(20, 20, 0, 0,speed)
+		m = new primAlgorithm(size, size, 0, 0,speed)
 	}
 	else if (nameValue == "r") {
-		m = new depthsearch(20, 20, 0, 0,speed)
+		m = new depthsearch(size, size, 0, 0,speed)
 	}
 	else if (nameValue == "a") {
-		m = new aldousBroder(20, 20, 0, 0,speed)
+		m = new aldousBroder(size, size, 0, 0,speed)
 	}
 	else if(nameValue=="d"){
-		m=new division(20,20,speed)
+		m=new division(size,size,speed)
 	}
 	m.createMaze()
 	return m;
 }
 
+function clearPage(){
+	ct.fillStyle = "#000000";
+	ct.fillRect(0,0,1000,1000);
+}
 canvas.addEventListener('mousedown', (e) => {
 
 })
