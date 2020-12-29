@@ -157,11 +157,10 @@ canvas.addEventListener('mousedown', (event) => {
 canvas.addEventListener('mousemove', (event) => {
 	let x = Math.floor(event.offsetX / n.mul);
 	let y = Math.floor(event.offsetY / n.mul);
-	if (x < size && y < size) {
+	if (x>=0&& y>=0 && x < size && y < size) {
 		if (dragI) {
 			intialX = x
 			intialY = y
-
 			n.drawMaze(ct)
 			n.drawPoints(ct, intialX, intialY, finalX, finalY)
 		}
@@ -170,8 +169,10 @@ canvas.addEventListener('mousemove', (event) => {
 			finalY = y
 			n.drawMaze(ct)
 			n.drawPoints(ct, intialX, intialY, finalX, finalY)
+			
 		}
 	}
+	
 })
 canvas.addEventListener('mouseup', (event) => {
 	dragI = false;

@@ -11,7 +11,8 @@ export default class recursivepathFinder extends pathFinder{
         this.paths=this.generatePath([],this.rowI,this.columnI)
     }
     generatePath(paths, curRow, curColumn, prevRow = -10, prevColumn = -10) {
-        paths.push(new path(curRow, curColumn))
+        paths.push(new path(curRow, curColumn,prevRow,prevColumn))
+        this.allPaths.push(new path(curRow, curColumn,prevRow,prevColumn))
         if (curRow == this.row && curColumn == this.column) {
             return paths
         }
