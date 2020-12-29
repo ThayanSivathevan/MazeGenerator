@@ -13,8 +13,8 @@ export default class maze extends superMaze {
         this.arr.forEach((e, i) => {
             e.forEach((d,j)=> {
                 super.visit(d)
-                if(i!=this.rows-1)d.east=false
-                if(j!=this.columns-1)d.south=false
+                if(i!=this.rows-1)d.south=false
+                if(j!=this.columns-1)d.east=false
 
             })
         })
@@ -56,15 +56,15 @@ export default class maze extends superMaze {
 
 
     convertMaze() {
-        this.walls.forEach((w, i) => {
+        this.walls.forEach((w,b) => {
             if (w.orientation === "h") {
                 for(let i=w.pos;i<w.pos+w.size;i++){
-                    if(w.open!=i)this.arr[i][w.loc-1].south=true
+                    if(w.open!=i)this.arr[w.loc-1][i].south=true
                 }
             }
             else {
                 for(let i=w.pos;i<w.pos+w.size;i++){
-                    if(w.open!=i)this.arr[w.loc-1][i].east=true
+                    if(w.open!=i)this.arr[i][w.loc-1].east=true
                 }
             }
         })

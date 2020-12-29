@@ -73,24 +73,24 @@ export default class maze{
 		
 			if(c1.getRow()==c2.getRow()){
 				if(c1.getColumn()>c2.getColumn()){
-					this.arr[c2.getRow()][c2.getColumn()].south=false;
-					n=[c2.getRow(),c2.getColumn(),"south"]	
+					this.arr[c2.getRow()][c2.getColumn()].east=false;
+					n=[c2.getRow(),c2.getColumn(),"east"]	
 					
 				}
 				else if(c1.getColumn()<c2.getColumn()){
-					this.arr[c1.getRow()][c1.getColumn()].south=false;
-					n=[c1.getRow(),c1.getColumn(),"south"]	
+					this.arr[c1.getRow()][c1.getColumn()].east=false;
+					n=[c1.getRow(),c1.getColumn(),"east"]	
 
 				}
 			}
 			else if (c1.getColumn()==c2.getColumn()){
 				if(c1.getRow()>c2.getRow()){
-					this.arr[c2.getRow()][c2.getColumn()].east=false;
-					n=[c2.getRow(),c2.getColumn(),"east"]	
+					this.arr[c2.getRow()][c2.getColumn()].south=false;
+					n=[c2.getRow(),c2.getColumn(),"south"]	
 				}
 				else if(c1.getRow()<c2.getRow()){
-					this.arr[c1.getRow()][c1.getColumn()].east=false;
-					n=[c1.getRow(),c1.getColumn(),"east"]	
+					this.arr[c1.getRow()][c1.getColumn()].south=false;
+					n=[c1.getRow(),c1.getColumn(),"south"]	
 					
 				}
 			}

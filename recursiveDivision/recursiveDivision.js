@@ -6,8 +6,8 @@ import algorithm from '../general/algorithm.js'
 import wall from './wall.js'
 export default class recursiveDivision extends algorithm {
 
-    constructor(x, y,speed=0) {
-        super(x, y, new maze(x, y),speed+30)
+    constructor(x, y, speed = 0) {
+        super(x, y, new maze(x, y), speed + 30)
         this.s = new Stack()
 
     }
@@ -51,7 +51,7 @@ export default class recursiveDivision extends algorithm {
         super.drawMaze(ct)
     }
 
-    visualize(ct) {
+    visualize(ct, intialX, intialY, finalX, finalY) {
         let i = 0
         ct.fillStyle = "#FFFFFF";
         ct.fillRect(0, 0, this.mul * this.x, this.mul * this.y)
@@ -61,26 +61,28 @@ export default class recursiveDivision extends algorithm {
         let t = this.m
         let mul = this.mul
         let size = this.size
-        let cur=this;
-        if(this.iter!=0){
-            while(i!=this.iter){
-                animate(true,i)
+        let cur = this;
+        this.cont = true
+        if (this.iter != 0) {
+            while (i != this.iter) {
+                animate(true, i)
                 i++;
             }
         }
-        function animate(redo=false,i=cur.iter) {
-            if (cur.iter== t.walls.length) {
+        function animate(redo = false, i = cur.iter) {
+            if (cur.iter == t.walls.length) {
                 clearInterval(id);
-                cur.iter=true
-                cur.cont=false;
+                cur.iter = true
+                cur.cont = false;
                 cur.drawMaze(ct)
+                cur.drawPoints(ct,intialX, intialY, finalX, finalY)
             }
             else {
                 let n = t.walls[i];
                 if (n.orientation === "h") {
                     ct.fillRect(n.pos * mul, n.loc * mul, n.size * mul, 20)
                     ct.fillStyle = "#FFFFFF";
-                    ct.fillRect(n.open * mul + 20, n.loc *mul, size, 20)
+                    ct.fillRect(n.open * mul + 20, n.loc * mul, size, 20)
                     ct.fillStyle = "#000000";
 
                 }
@@ -92,7 +94,7 @@ export default class recursiveDivision extends algorithm {
                     ct.fillStyle = "#000000";
 
                 }
-                if(!redo)cur.iter++;
+                if (!redo) cur.iter++;
 
             }
 
@@ -100,7 +102,8 @@ export default class recursiveDivision extends algorithm {
     }
 
 
-    clear(){
+    clear() {
         clearInterval(this.id);
+        this.cont = false;
     }
 }

@@ -1,8 +1,8 @@
 export default class visualize{
-	constructor(type,x,y,direction){
+	constructor(type,row,column,direction){
 			this.type=type
-			this.x=x
-			this.y=y
+			this.row=row
+			this.column=column
 			if(type=="connection")this.direction=direction
 	}
 }
