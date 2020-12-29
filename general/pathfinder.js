@@ -1,6 +1,6 @@
 import path from "./path.js";
 
-export default class pathFinder {
+export default class pathfinder {
     constructor(intialX, intialY, finalX, finalY, maze, speed) {
         this.column = finalX;
         this.row = finalY

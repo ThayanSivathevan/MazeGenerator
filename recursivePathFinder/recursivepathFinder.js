@@ -1,5 +1,5 @@
 import path from '../general/path.js'
-import pathFinder from '../general/pathFinder.js'
+import pathFinder from '../general/pathfinder.js'
 export default class recursivepathFinder extends pathFinder{
     constructor(intialX, intialY, finalX, finalY, maze,speed) {
         super(intialX, intialY, finalX, finalY, maze,speed)
