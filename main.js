@@ -4,8 +4,7 @@ import primAlgorithm from './randomizedPrim/primAlgorithm.js'
 import kruskalalgorithm from './randomizedKruskalAlgorithm/randomizeKruskal.js'
 import aldousBroder from './aldousBroder/aldousBroder.js'
 import division from './recursiveDivision/recursiveDivision.js'
-import rPath from './recursivePathFinder/recursivepathFinder.js'
-import pathFinder from './recursivePathFinder/recursivepathFinder.js'
+import recursivePathFinder from './recursivePathFinder/recursivepathFinder.js'
 
 
 var can = document.getElementById("canvas");
@@ -16,12 +15,14 @@ var cont = false;
 var generate = document.getElementById("generate");
 var visual = document.getElementById("visualize");
 var generateP = document.getElementById("generateP");
+var visualizeP = document.getElementById("visualizeP");
 var selection = document.getElementById("Algorithm-select");
 var body = document.getElementById("change");
 var range = document.getElementById("Speed");
 var Size = document.getElementById("Size");
+var speed = parseInt(range.value) * -1
 var path;
-var size;
+var size = 20;
 
 var intialX = 0, intialY = 0;
 var finalX = 19, finalY = 19;
@@ -33,52 +34,58 @@ const mazeCreation = () => {
 	n.drawMaze(ct)
 	n.drawPoints(ct, intialX, intialY, finalX, finalY)
 }
-
-mazeCreation();
-
-change.onload = () => {
-	mazeCreation()
+const pathCreation = () => {
+	n.drawMaze(ct, intialX, intialY, finalX, finalY)
+	n.drawPoints(ct, intialX, intialY, finalX, finalY)
+	path = findPath()
 }
-
+mazeCreation();
+pathCreation();
 generate.onclick = () => {
 	mazeCreation()
 
 }
 
 visual.onclick = () => {
-
+	reset()
 	n = findMaze();
-	n.cont = true;
 	n.visualize(ct, intialX, intialY, finalX, finalY)
 }
 
 range.onchange = () => {
+	n.speed = parseInt(range.value) * -1
+	path.speed = parseInt(range.value) * -1
+	speed = parseInt(range.value) * -1
+	if (n.cont) {
 
-		if (n.cont) {
-			n.speed = parseInt(range.value) * -1
-			n.clear()
-			n.visualize(ct, intialX, intialY, finalX, finalY)
-		}
-	
+		n.clear()
+		n.visualize(ct, intialX, intialY, finalX, finalY)
+	}
+	if (path.cont) {
+		path.clear()
+		path.visualizePath(ct)
+	}
+
 }
 
-generateP.onclick=()=>{
-	n.clear()
-	console.log(n.m.arr)
-	n.drawMaze(ct, intialX, intialY, finalX, finalY)
-	n.drawPoints(ct, intialX, intialY, finalX, finalY)
-	
-	drawgrid()
-	path=new pathFinder(intialX,intialY,finalX,finalY,n.m)
-	
-	console.log(path.paths)
+Size.onchange = () => {
+	size = parseInt(Size.value)
+}
 
+generateP.onclick = () => {
+	reset()
+	pathCreation()
+	path.drawPath(ct)
+}
+
+visualizeP.onclick = () => {
+	reset()
+	pathCreation()
+	path.visualizePath(ct)
 }
 function findMaze() {
 	var nameValue = document.getElementById("Algorithm-select").value;
 	let m;
-	let speed = parseInt(range.value) * -1
-	size = parseInt(Size.value)
 
 	finalX = Math.min(finalX, size - 1)
 	finalY = Math.min(finalY, size - 1)
@@ -107,13 +114,30 @@ function findMaze() {
 	return m;
 }
 
+function findPath() {
+	var nameValue = document.getElementById("PathFinder-select").value;
+	let m;
+	if (nameValue == "r") {
+		m = new recursivePathFinder(intialX, intialY, finalX, finalY, n.m, speed);
+	}
+	m.findPath()
+	return m
+
+}
+
+function reset() {
+	n.clear();
+	path.clear();
+	n.drawMaze(ct, intialX, intialY, finalX, finalY)
+	n.drawPoints(ct, intialX, intialY, finalX, finalY)
+}
 function clearPage() {
 	ct.fillStyle = "#000000";
 	ct.fillRect(0, 0, 1000, 1000);
 }
-function drawgrid(){
-	for(let i=0;i<20;i++){
-		for(let j=0;j<20;j++){
+function drawgrid() {
+	for (let i = 0; i < 20; i++) {
+		for (let j = 0; j < 20; j++) {
 			ct.beginPath()
 			ct.rect(i * n.mul + 10, j * n.mul + 10, n.size, n.size)
 			ct.stroke();
@@ -123,11 +147,9 @@ function drawgrid(){
 canvas.addEventListener('mousedown', (event) => {
 	let x = Math.floor(event.offsetX / n.mul);
 	let y = Math.floor(event.offsetY / n.mul);
-	if (n) {
-		if (!n.cont) {
-			if (intialX == x && intialY == y) dragI = true
-			if (finalX == x && finalY == y) dragF = true
-		}
+	if (!n.cont && !path.cont) {
+		if (intialX == x && intialY == y) dragI = true
+		if (finalX == x && finalY == y) dragF = true
 	}
 
 })

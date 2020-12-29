@@ -3,8 +3,8 @@ import wall from './wall.js'
 export default class maze{
 	
 	constructor(sx,sy){
-		this.rows=sx
-		this.columns=sy
+		this.rows=sy
+		this.columns=sx
 		this.arr=[[]]
 		this.walls=[]
 		this.initCells();
