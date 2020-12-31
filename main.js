@@ -6,7 +6,7 @@ import aldousBroder from './mazecreation/aldousBroder/aldousBroder.js'
 import division from './mazecreation/recursiveDivision/recursiveDivision.js'
 import recursivePathFinder from './pathfinder/recursivePathFinder/recursivepathFinder.js'
 import breadthFirst from './pathfinder/breadthfirstPathFinder/breadthfirst.js'
-import depthfirst from './pathfinder/depthfirstPathFinder/depthfirst.js'
+//import depthfirst from './pathfinder/depthfirstPathFinder/depthfirst.js'
 
 
 var can = document.getElementById("canvas");

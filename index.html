@@ -1,42 +1,45 @@
-
 <html>
-  <head>
-    <title>Maze Generator</title>
-    <link rel="stylesheet"  href="css.css">
-  </head>
-  <body id="change">
-    <div class="main">
-      <div id="header">
-        <div id="createMaze">
-          <h3 id="title">Maze Generator</h3>
-            <select name="Algorithms" id="Algorithm-select">
-                  <option  value="k">Kruskal's Algorithm-</option>
-                  <option value="p">Prim's Algorithm</option>
-                  <option value="r">Randomized Depth Search</option>
-                  <option value="a">Aldous Broder</option>
-                  <option value="d">Recursive Division</option>
-            </select>
-            <h4>Speed:
-            <input type="range" min="-100" max="-10" value="-50" class="slider" id="Speed"></h4>
-            <h4>Size:
-              <input type="number" id="Size" name="quantity" min="5" max="20" value="20"></h4>
-            <button id="visualize">Visualize</button>
-            <button id="generate" >Generate </button>
 
-            <select name="Algorithms" id="PathFinder-select">
-              <option value="r">Recursive Path Finder</option>
-              <option value="b">Breadth-first Path Finder</option>
-              <option value="d">Depth-first Path Finder</option>
-          </select>
-          <button id="visualizeP">Visualize</button>
-          <button id="generateP" >Generate </button>
-        </div>
+<head>
+  <title>Maze Generator</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body id="change">
+  <div class="main">
+    <div id="header">
+      <div id="createMaze">
+        <h3 id="title">Maze Generator</h3>
+        <select name="Algorithms" id="Algorithm-select">
+          <option value="k">Kruskal's Algorithm-</option>
+          <option value="p">Prim's Algorithm</option>
+          <option value="r">Randomized Depth Search</option>
+          <option value="a">Aldous Broder</option>
+          <option value="d">Recursive Division</option>
+        </select>
+        <h4>Speed:
+          <input type="range" min="-100" max="-10" value="-50" class="slider" id="Speed">
+        </h4>
+        <h4>Size:
+          <input type="number" id="Size" name="quantity" min="5" max="20" value="20">
+        </h4>
+        <button id="visualize">Visualize</button>
+        <button id="generate">Generate </button>
+
+        <select name="Algorithms" id="PathFinder-select">
+          <option value="r">Recursive Path Finder</option>
+          <option value="b">Breadth-first Path Finder</option>
+          <option value="d">Depth-first Path Finder</option>
+        </select>
+        <button id="visualizeP">Visualize</button>
+        <button id="generateP">Generate </button>
       </div>
-      <div class="center">
-        <canvas id="canvas" width=1000px height=1000px></canvas>
-      </div>
-      <script type="module" src="./main.js"></script>
-      <script type="module" src='./pathfinder/depthfirstPathFinder/depthfirst.js'></script>
     </div>
-  </body>
+    <div class="center">
+      <canvas id="canvas" width=1000px height=1000px></canvas>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </div>
+</body>
+
 </html>
