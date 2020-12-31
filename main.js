@@ -1,10 +1,12 @@
 
-import depthsearch from './randomizedDepth/RandomizedDepthFirstSearch.js'
-import primAlgorithm from './randomizedPrim/primAlgorithm.js'
-import kruskalalgorithm from './randomizedKruskalAlgorithm/randomizeKruskal.js'
-import aldousBroder from './aldousBroder/aldousBroder.js'
-import division from './recursiveDivision/recursiveDivision.js'
-import recursivePathFinder from './recursivePathFinder/recursivepathFinder.js'
+import depthsearch from './mazecreation/randomizedDepth/RandomizedDepthFirstSearch.js'
+import primAlgorithm from './mazecreation/randomizedPrim/primAlgorithm.js'
+import kruskalalgorithm from './mazecreation/randomizedKruskalAlgorithm/randomizeKruskal.js'
+import aldousBroder from './mazecreation/aldousBroder/aldousBroder.js'
+import division from './mazecreation/recursiveDivision/recursiveDivision.js'
+import recursivePathFinder from './pathfinder/recursivePathFinder/recursivepathFinder.js'
+import breadthFirst from './pathfinder/breadthfirstPathFinder/breadthfirst.js'
+import depthfirst from './pathfinder/depthfirstPathFinder/depthfirst.js'
 
 
 var can = document.getElementById("canvas");
@@ -119,6 +121,12 @@ function findPath() {
 	let m;
 	if (nameValue == "r") {
 		m = new recursivePathFinder(intialX, intialY, finalX, finalY, n.m, speed);
+	}
+	else if (nameValue == "b") {
+		m = new breadthFirst(intialX, intialY, finalX, finalY, n.m, speed);
+	}
+	else if (nameValue == "d") {
+		m = new depthfirst(intialX, intialY, finalX, finalY, n.m, speed);
 	}
 	m.findPath()
 	return m

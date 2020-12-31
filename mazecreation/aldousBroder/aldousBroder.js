@@ -1,8 +1,6 @@
-import cell from '../general/cell.js'
 import maze from './maze.js'
-import Stack from '../general/stack.js'
-import visualize from '../general/visualize.js'
-import algorithm from '../general/algorithm.js'
+import Stack from '../../general/stack.js'
+import algorithm from '../../general/algorithm.js'
 export default class depthsearch extends algorithm{
 	constructor(x,y,px,py,speed=10){
 		super(x,y,new maze(x,y),speed)

@@ -1,5 +1,5 @@
-import path from '../general/path.js'
-import pathFinder from '../general/pathfinder.js'
+import path from '../../general/path.js'
+import pathFinder from '../../general/pathfinder.js'
 export default class recursivepathFinder extends pathFinder{
     constructor(intialX, intialY, finalX, finalY, maze,speed) {
         super(intialX, intialY, finalX, finalY, maze,speed)
@@ -24,17 +24,10 @@ export default class recursivepathFinder extends pathFinder{
             if (!(row == prevRow && column == prevColumn)) {
                 let trow = Math.min(row, curRow)
                 let tcolumn = Math.min(column, curColumn)
-                if (row == curRow && !(this.maze.arr[row][tcolumn].east)) {
+                if ((row == curRow && !(this.maze.arr[row][tcolumn].east)) || (column == curColumn && !this.maze.arr[trow][column].south)) {
                     let temp = Array.from(paths)
 
                     let final = this.generatePath(temp, row, column, curRow, curColumn)
-                    if (final.length > 0) return final
-                }
-                if (column == curColumn && !this.maze.arr[trow][column].south) {
-                    let temp = Array.from(paths)
-                    
-                    let final = this.generatePath(temp, row, column, curRow, curColumn)
-
                     if (final.length > 0) return final
                 }
             }

@@ -25,6 +25,8 @@
 
             <select name="Algorithms" id="PathFinder-select">
               <option value="r">Recursive Path Finder</option>
+              <option value="b">Breadth-first Path Finder</option>
+              <option value="d">Depth-first Path Finder</option>
           </select>
           <button id="visualizeP">Visualize</button>
           <button id="generateP" >Generate </button>
@@ -34,12 +36,12 @@
         <canvas id="canvas" width=1000px height=1000px></canvas>
       </div>
       <script type="module" src="./main.js"></script>
-      <script type="module" src="./randomizedDepth/maze.js"></script>
-      <script type="module" src="./randomizedDepth/RandomizedDepthFirstSearch.js"></script>
-      <script type="module" src="./randomizedPrim/maze.js"></script>
-      <script type="module" src="./randomizedPrim/primAlgorithm.js"></script>
-      <script type="module" src="./randomizedKruskalAlgorithm/randomizeKruskal.js"></script>
-      <script type="module" src="./randomizedKruskalAlgorithm/maze.js"></script>
+      <script type="module" src="./mazeCreation/randomizedDepth/maze.js"></script>
+      <script type="module" src="./mazeCreation/randomizedDepth/RandomizedDepthFirstSearch.js"></script>
+      <script type="module" src="./mazeCreation/randomizedPrim/maze.js"></script>
+      <script type="module" src="./mazeCreation/randomizedPrim/primAlgorithm.js"></script>
+      <script type="module" src="./mazeCreation/randomizedKruskalAlgorithm/randomizeKruskal.js"></script>
+      <script type="module" src="./mazeCreation/randomizedKruskalAlgorithm/maze.js"></script>
       <script type="module" src="./general/cell.js"></script>
       <script type="module" src="./general/stack.js"></script>
       <script type="module" src="./general/visualize.js"></script>

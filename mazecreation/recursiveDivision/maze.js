@@ -1,6 +1,4 @@
-import cell from '../general/cell.js'
-import superMaze from '../general/maze.js'
-import visualize from '../general/visualize.js'
+import superMaze from '../../general/maze.js'
 import wall from './wall.js'
 export default class maze extends superMaze {
     constructor(sx, sy) {
@@ -56,7 +54,7 @@ export default class maze extends superMaze {
 
 
     convertMaze() {
-        this.walls.forEach((w,b) => {
+        this.walls.forEach((w) => {
             if (w.orientation === "h") {
                 for(let i=w.pos;i<w.pos+w.size;i++){
                     if(w.open!=i)this.arr[w.loc-1][i].south=true
