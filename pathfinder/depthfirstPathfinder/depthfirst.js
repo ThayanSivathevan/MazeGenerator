@@ -1,8 +1,8 @@
 import path from '../../general/path.js'
-import pathFinder from '../../general/pathfinder.js'
+import pathfinder from '../../general/pathfinder.js'
 import stack from '../../general/stack.js'
 import tree from '../../general/tree.js'
-export default class depthFirst extends pathFinder {
+export default class depthfirst extends pathfinder {
     constructor(intialX, intialY, finalX, finalY, maze, speed) {
         super(intialX, intialY, finalX, finalY, maze, speed)
         this.cells = []
