@@ -191,3 +191,50 @@ canvas.addEventListener('mouseover', (event) => {
 	dragI = false;
 	dragF = false;
 })
+
+
+
+canvas.addEventListener("touchstart",  (event) => {
+	var rect = canvas.getBoundingClientRect();
+	let x = Math.floor((event.touches[0].clientX - rect.left)/ n.mul);
+	let y = Math.floor((event.touches[0].clientY - rect.top)/ n.mul);
+	if (!n.cont && !path.cont) {
+		if (intialX == x && intialY == y) dragI = true
+		if (finalX == x && finalY == y) dragF = true
+	}
+
+});
+canvas.addEventListener("touchend", 
+(event) => {
+	dragI = false;
+	dragF = false;
+}
+);
+canvas.addEventListener("touchcancel",
+(event) => {
+	dragI = false;
+	dragF = false;
+} );
+canvas.addEventListener("touchmove",
+(event) => {
+	var rect = canvas.getBoundingClientRect();
+	let x = Math.floor((event.touches[0].clientX - rect.left)/ n.mul);
+	let y = Math.floor((event.touches[0].clientY - rect.top)/ n.mul);
+	console.log(dragI,event.touches[0].clientX,event.touches[0].clientY)
+	if (x>=intialX && y>=intialY && x < size + n.intialX && y < size + n.intialY) {
+		if (dragI) {
+			intialX = x
+			intialY = y
+			n.drawMaze(ct, intialX, intialY, finalX, finalY)
+			n.drawPoints(ct, intialX, intialY, finalX, finalY)
+		}
+		else if (dragF) {
+			finalX = x
+			finalY = y
+			n.drawMaze(ct, intialX, intialY, finalX, finalY)
+			n.drawPoints(ct, intialX, intialY, finalX, finalY)
+			
+		}
+	}
+	
+});
