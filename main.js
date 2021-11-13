@@ -220,18 +220,17 @@ canvas.addEventListener("touchmove",
 	var rect = canvas.getBoundingClientRect();
 	let x = Math.floor((event.touches[0].clientX - rect.left)/ n.mul);
 	let y = Math.floor((event.touches[0].clientY - rect.top)/ n.mul);
-	console.log(dragI,event.touches[0].clientX,event.touches[0].clientY)
-	if (x>=intialX && y>=intialY && x < size + n.intialX && y < size + n.intialY) {
+	if (x>=0&& y>=0 && x < size && y < size) {
 		if (dragI) {
 			intialX = x
 			intialY = y
-			n.drawMaze(ct, intialX, intialY, finalX, finalY)
+			n.drawMaze(ct)
 			n.drawPoints(ct, intialX, intialY, finalX, finalY)
 		}
 		else if (dragF) {
 			finalX = x
 			finalY = y
-			n.drawMaze(ct, intialX, intialY, finalX, finalY)
+			n.drawMaze(ct)
 			n.drawPoints(ct, intialX, intialY, finalX, finalY)
 			
 		}
